@@ -17,4 +17,5 @@ function getTemperature() {
     })
 }
 
-setInterval(getTemperature, 10000)
+getTemperature()
+setInterval(getTemperature, 5000)
