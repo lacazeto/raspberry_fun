@@ -10,5 +10,5 @@ IMU.getValue((err, data) => {
     return
   }
 
-  sense.showLetter(data.temperature.toFixed(0))
+  sense.showMessage(data.temperature.toFixed(0), [255, 0, 0])
 })
