@@ -18,7 +18,7 @@ function getTemperature() {
 }
 
 IMU.getValue((err, data) => {
-    sense.showLetter(floor(data.temperature))
+    sense.showLetter(Math.round(data.temperature))
 })
 
 setInterval(getTemperature, 5000)
