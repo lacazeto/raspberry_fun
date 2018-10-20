@@ -3,12 +3,18 @@ var sense = require("sense-hat-led").sync;
 
 
 const IMU = new imu.IMU()
+let temp
 
-IMU.getValue((err, data) => {
-  if (err !== null) {
-    console.error("Could not read sensor data: ", err)
-    return
-  }
+function getTemperature() {
+    IMU.getValue((err, data) => {
+        if (err !== null) {
+            console.error("Could not read sensor data: ", err)
+            return
+        } else {
+            temp = data.temperature.toFixed(0)
+            sense.showMessage(temp, 0.2, [255, 0, 0])
+        }        
+    })
+}
 
-  sense.showMessage(data.temperature.toFixed(0), 0.2, [255, 0, 0])
-})
+setInterval(getTemperature, 10000)
