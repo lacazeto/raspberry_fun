@@ -91,4 +91,7 @@ const grid = [
     ]
     
 
-export { number, grid }
+module.exports = {
+    number: number,
+    grid: grid
+    }

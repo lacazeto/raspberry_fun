@@ -1,10 +1,10 @@
+const matrix = require('./numbers').grid
+const number = require('./numbers').number
 const imu = require("node-sense-hat").Imu
-var sense = require("sense-hat-led").sync;
-import { number, grid } from 'number'
-
+const sense = require("sense-hat-led").sync
 
 const IMU = new imu.IMU()
-let matrix = grid
+let  = grid
 let temp
 
 function translateToMatrix(temp) {
