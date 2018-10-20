@@ -4,7 +4,6 @@ const imu = require("node-sense-hat").Imu
 const sense = require("sense-hat-led").sync
 
 const IMU = new imu.IMU()
-let  = grid
 let temp
 
 function translateToMatrix(temp) {
