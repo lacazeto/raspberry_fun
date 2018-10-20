@@ -1,8 +1,14 @@
-const matrix = require('node-sense-hat').Leds;
+const imu = require("node-sense-hat").Imu
+var sense = require("sense-hat-led").sync;
 
-const x = 3;
-const y = 3;
-const red = [255, 0, 0];
 
-// Set a single pixel
-matrix.setPixel(x, y, red);
+const IMU = new imu.IMU()
+
+IMU.getValue((err, data) => {
+  if (err !== null) {
+    console.error("Could not read sensor data: ", err)
+    return
+  }
+
+  sense.showLetter(data.temperature.toFixed(0))
+})
