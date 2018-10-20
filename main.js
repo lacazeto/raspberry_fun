@@ -1,12 +1,8 @@
-const SenseHat = require('sense_hat')
+const matrix = require('node-sense-hat').Leds;
 
-sense = SenseHat()
+const x = 3;
+const y = 3;
+const red = [255, 0, 0];
 
-sense.set_pixel(2, 2, (0, 0, 255))
-sense.set_pixel(4, 2, (0, 0, 255))
-sense.set_pixel(3, 4, (100, 0, 0))
-sense.set_pixel(1, 5, (255, 0, 0))
-sense.set_pixel(2, 6, (255, 0, 0))
-sense.set_pixel(3, 6, (255, 0, 0))
-sense.set_pixel(4, 6, (255, 0, 0))
-sense.set_pixel(5, 5, (255, 0, 0))
+// Set a single pixel
+matrix.setPixel(x, y, red);
