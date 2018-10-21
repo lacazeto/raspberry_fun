@@ -7,19 +7,16 @@ const IMU = new imu.IMU()
 let temp
 
 function translateToMatrix(temp) {
-    const decimal = Math.round(temp / 10)
+    const decimal = Math.floor(temp / 10)
     const unit = temp % 10
-    let pixel_offset = 0
     let index = 0
 
     for (i = 0;  i < 8; i++) {
         for (j = 0; j < 4; j++) {
-            matrix[index] = number[decimal*32+pixel_offset]
-            matrix[index+4] = number[unit*32+pixel_offset]
-            pixel_offset = pixel_offset + 1
+            matrix[index] = number[decimal*32]
+            matrix[index+4] = number[unit*32]
             index = index + 1        
         }
-        index = index + 8
     }
 
     sense.setPixels(matrix)
@@ -37,4 +34,5 @@ function getTemperature() {
     })
 }
 
+getTemperature()
 setInterval(getTemperature, 5000)
